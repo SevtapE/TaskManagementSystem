@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Worker/Views/Shared/_WorkerLayout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-sm-6">
+        <section class="panel">
+
+            @await Component.InvokeAsync("TasksDoList",new {id=ViewBag.Id})
+        </section>
+    </div>
+    <div class="col-sm-6">
+        <section class="panel">
+            @await Component.InvokeAsync("TasksScheduleList",new {id=ViewBag.Id})
+         
+        </section>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <section class="panel">
+            @await Component.InvokeAsync("TasksLaterList",new {id=ViewBag.Id})
+      
+        </section>
+    </div>
+    <div class="col-sm-6">
+        <section class="panel">
+            @await Component.InvokeAsync("TasksDelegateList",new {id=ViewBag.Id})
+           
+        </section>
+    </div>
+</div>
+

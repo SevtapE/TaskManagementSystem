@@ -1,0 +1,51 @@
+﻿@using Entities.Concrete
+@model List<Employee>
+@{
+    ViewData["Title"] = "GetByCompany";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading no-border ">
+           <strong>Company Employees</strong> 
+        </header>
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+
+                    <th>CompanyId</th>
+                    <th>CompanyName</th>
+                    <th>EmployeeRegistrationNumber</th>
+                    <th>Employee Name</th>
+                    <th>Employee Email</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.Company.CompanyId</th>
+                        <td>@item.Company.CompanyName</td>
+                         <th>@item.EmployeeRegistrationNumber</th>
+                        <td>@item.User.FirstName + " " +@item.User.LastName </td>
+                         <th>@item.User.Email</th>
+                        
+
+                      @*  <td><a href="/Admin/Employee/GetByCompany/@item.CompanyId" class="btn btn-primary">Employees</a> 
+                            </td>*@
+
+                    </tr>
+                }
+           
+
+            </tbody>
+        </table>
+        
+    </section>
+@*    <a href="/Admin/Company/AddCompany/" class="btn btn-success">Add New</a>*@
+</div>
+

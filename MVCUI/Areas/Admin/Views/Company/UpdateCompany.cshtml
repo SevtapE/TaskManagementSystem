@@ -1,0 +1,26 @@
+﻿@using Entities.Concrete
+@model Company
+@{
+    ViewData["Title"] = "UpdateCompany";
+   Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-sm-12">
+@using (Html.BeginForm("UpdateCompany", "Company", FormMethod.Post))
+{
+    <div class="form-group">
+          @Html.Label("Company ID")
+        @Html.TextBoxFor(x=>x.CompanyId,new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.CompanyId)
+       <br>
+       <br>
+        @Html.Label("Company Name")
+        @Html.TextBoxFor(x=>x.CompanyName,new {@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.CompanyName)
+       
+        <br>
+        <button class="btn btn-warning">Update</button>
+    </div>
+}
+</div>
+

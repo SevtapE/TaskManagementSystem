@@ -1,0 +1,36 @@
+﻿@using Core.Core.Security.Dtos
+@model UserForRegisterDto
+@{
+    ViewData["Title"] = "AddUser";
+     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-sm-12">
+    @using (Html.BeginForm("AddUser", "User", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.Label("First Name")
+            @Html.TextBoxFor(x=>x.FirstName,new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.FirstName)
+            <br>
+            <br>
+            @Html.Label("Last Name")
+            @Html.TextBoxFor(x=>x.LastName,new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.LastName)
+            <br>
+            <br>
+            @Html.Label("Email")
+            @Html.TextBoxFor(x=>x.Email,new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.Email)
+            <br>
+            <br>
+            @Html.Label("Password")
+            @Html.TextBoxFor(x=>x.Password,new {@class="form-control"})
+            @Html.ValidationMessageFor(x=>x.Password)
+            <br>
+            <br>
+            <button class="btn btn-info">Add</button>
+        </div>
+    }
+</div>
+

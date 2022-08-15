@@ -1,0 +1,45 @@
+﻿@using Entities.Concrete
+@model List<Company>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading no-border ">
+           <strong>Companies</strong> 
+        </header>
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+
+                    <th>CompanyId</th>
+                    <th>CompanyName</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.CompanyId</th>
+                        <td>@item.CompanyName</td>
+
+                        <td><a href="/Admin/Company/DeleteCompany/@item.CompanyId" class="btn btn-danger">Delete</a> </td>
+                        <td><a href="/Admin/Company/UpdateCompany/@item.CompanyId" class="btn btn-warning">Update</a> </td>
+                        <td><a href="/Admin/Employee/GetByCompany/@item.CompanyId" class="btn btn-primary">Employees</a> 
+                            </td>
+
+                    </tr>
+                }
+           
+
+            </tbody>
+        </table>
+        
+    </section>
+    <a href="/Admin/Company/AddCompany/" class="btn btn-success">Add New</a>
+</div>
+

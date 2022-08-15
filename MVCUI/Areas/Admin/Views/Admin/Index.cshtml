@@ -1,0 +1,52 @@
+﻿
+@model List<Entities.Concrete.Admin>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-sm-12">
+    <section class="panel">
+        <header class="panel-heading no-border ">
+            <strong>Admins</strong>
+        </header>
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+
+                    <th>Id</th>
+                     <th>First Name</th>
+                      <th>Last Name</th>
+                    <th>Admin Description</th>
+                    <th>Email</th>
+                    <th>Status</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.Id</th>
+                         <td>@item.User.FirstName</td>
+                          <td>@item.User.LastName</td>
+                        <td>@item.AdminDescription</td>
+                        <td>@item.User.Email</td>
+                        <td>@item.User.Status</td>
+
+                        <td><a href="/Admin/Admin/DeleteAdmin/@item.Id" class="btn btn-danger">Delete</a> </td>
+                        <td><a href="/Admin/Admin/UpdateAdmin/@item.Id" class="btn btn-warning">Update</a> </td>
+
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </section>
+    <a href="/Admin/Admin/AddAdmin/" class="btn btn-success">Add New</a>
+</div>
+
